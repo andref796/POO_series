@@ -27,3 +27,39 @@ void draw(){
   }
 
 }
+void mousePressed() { //esta funcion permite intercambiar las series que se quieren mostrar, en este caso lucas y factorial
+  serie= !serie;
+  sec= serie? new Lucas():new Factorial();
+  sec.autor();
+  sec.descripcion();
+  println(sec.toString(term));
+  println(sec.toArray(term));
+  c=1;
+  y=1;
+}
+void  keyPressed() { //con esta funcion podemos intercambiar las diferentes representaciones
+// dependiendo del condicional establecido en el draw
+if (key==ENTER)
+x=1;
+if(key==TAB)
+x=2;
+if(key==BACKSPACE)
+x=3;
+if(key==CODED){
+  // estas funciones permiten cambiar tanto el color como el tamaño de la representacion realizada al inicio del semestre
+  // Y hace referencia al tamaño
+  // C hace referencia al color
+  if(keyCode==RIGHT)
+   sec.setTam(y++);
+  if(keyCode==LEFT)
+   sec.setTam(y--);
+  if(y==0)
+  y=1;
+  if(keyCode==UP)
+   sec.setHue(c++);
+  if(keyCode==DOWN)
+   sec.setHue(c--);
+   if(c==0)
+   c=1;
+ } 
+}
